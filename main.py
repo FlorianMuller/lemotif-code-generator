@@ -54,6 +54,9 @@ def main(youtube_format, print_res, save):
     if save:
         with open("result.json", "w") as f:
             json.dump({"data": data, "results": res_lst}, f)
+        
+        with open("result.txt", "w") as f:
+            f.write("Résultats:\n" + '\n'.join(res_lst) + "\n\n\nParamètres:\n" + json.dumps(data, indent=4))
 
     print(f'\n\n {len(res_lst)} result found')
 
