@@ -1,8 +1,9 @@
 import json
 import string
 
-all = list(string.ascii_letters)
+RESULT_DIR = "result"
 
+all = list(string.ascii_letters)
 data = [
     # 1  [100%]
     ["d"],
@@ -93,10 +94,10 @@ def format_for_unsonparjour_no_case(base_lst):
 
 
 def save_files(name, result_lst):
-    with open(f"{name}.json", "w") as f:
+    with open(f"{RESULT_DIR}/{name}.json", "w") as f:
         json.dump({"data": data, "results": result_lst}, f)
     
-    with open(f"{name}.txt", "w") as f:
+    with open(f"{RESULT_DIR}/{name}.txt", "w") as f:
         f.write("Résultats:\n" + '\n'.join(result_lst) + "\n\n\nParamètres:\n" + json.dumps(data, indent=4))
 
 def next_index(index_lst):
