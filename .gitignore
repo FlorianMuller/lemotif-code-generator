@@ -1,4 +1,5 @@
 __pycache__
+.DS_Store
 
 *result*.json
 *result*.txt

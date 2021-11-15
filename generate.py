@@ -5,8 +5,8 @@ import pandas as pd
 from data import data
 
 RESULT_DIR = "result"
-os.makedirs(RESULT_DIR)
-
+if not os.path.exists(RESULT_DIR):
+    os.makedirs(RESULT_DIR)
 
 
 def format_no_case(base_lst):
@@ -68,9 +68,14 @@ def main(print_res, save):
         print('\n'.join(res_lst))
 
     if save:
-        # save_files("result", res_lst)
-        # save_files("result_nocase", format_no_case(res_lst))
+        # Simple code list
+        save_files("result", res_lst)
+        save_files("result_nocase", format_no_case(res_lst))
+        
+        # Youtube format
         # save_files("youtube_result", format_for_youtube(res_lst))
+        
+        # `unsonparjour.com/[CODE]` format
         save_files("unsonparjour_result", format_for_unsonparjour(res_lst))
         save_files("unsonparjour_nocase_result", format_for_unsonparjour_no_case(res_lst), to_csv=True)
 
