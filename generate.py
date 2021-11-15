@@ -1,9 +1,11 @@
+import os
 import json
 import pandas as pd
 
 from data import data
 
 RESULT_DIR = "result"
+os.makedirs(RESULT_DIR)
 
 
 
